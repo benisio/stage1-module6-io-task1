@@ -22,10 +22,8 @@ public class FileReader {
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
-            throw new RuntimeException(e);
         } catch (IOException e) {
             System.out.println("Error occured while reading file");
-            throw new RuntimeException(e);
         }
         return profileData;
     }
@@ -36,10 +34,5 @@ public class FileReader {
         int age = Integer.parseInt(profileData.get("Age"));
         long phone = Long.parseLong(profileData.get("Phone"));
         return new Profile(name, age, email, phone);
-    }
-
-    public static void main(String[] args) {
-        var fileReader = new FileReader();
-        System.out.println(fileReader.getDataFromFile(new File("src/main/resources/Profile.txt")));
     }
 }
